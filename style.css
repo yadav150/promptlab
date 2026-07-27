@@ -1,0 +1,321 @@
+/* ===== ROOT VARIABLES (Primary #FF0000) ===== */
+:root {
+    --primary-color: #FF0000;
+    --primary-hover: #CC0000;
+    --primary-light: rgba(255, 0, 0, 0.08);
+    --body-bg: #F8F9FA;
+    --section-bg: #FFFFFF;
+    --text-color: #1E1E1E;
+    --text-muted: #4A4A4A;
+    --border-color: #E6E6E6;
+    --border-radius: 8px;
+    --card-radius: 16px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 0 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-color);
+}
+
+.github-link {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    transition: 0.2s;
+}
+
+.github-link:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* ===== MAIN GENERATOR ===== */
+.generator-section {
+    max-width: 700px;
+    margin: 40px auto 60px auto;
+    background: var(--section-bg);
+    padding: 32px 24px;
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    font-size: 1rem;
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--body-bg);
+    resize: vertical;
+    transition: border 0.2s;
+    color: var(--text-color);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+textarea.error {
+    border-color: var(--primary-color);
+}
+
+.error-msg {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    margin-top: 6px;
+    background: rgba(255, 0, 0, 0.05);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 48px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    flex: 1;
+}
+
+.btn-outline:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: #FFFFFF;
+}
+
+.btn-outline svg {
+    flex-shrink: 0;
+}
+
+/* ===== IMAGE OUTPUT ===== */
+.image-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.image-wrapper {
+    position: relative;
+    background: var(--body-bg);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== LOADER ===== */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: none;
+}
+
+.loader.active {
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.action-buttons .btn-outline {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+}
+
+/* ===== TOAST ===== */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #1E1E1E;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    white-space: nowrap;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+    .generator-section {
+        padding: 24px 16px;
+        margin: 20px auto 40px auto;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .logo span {
+        font-size: 1.3rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-outline {
+        width: 100%;
+    }
+
+    .toast {
+        white-space: normal;
+        max-width: 80%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .generator-section {
+        padding: 48px 40px;
+    }
+}
