@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Prompts — PromptLab</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../pagination.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-logo">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                Prompt<span>Lab</span>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION (all links within /pages/) ===== -->
+    <nav class="nav-wrapper" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="beauty.html">Beauty</a></li>
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="realistic.html">Realistic</a></li>
+                <li><a href="anime.html">Anime</a></li>
+                <li><a href="logo.html">Logo</a></li>
+                <li><a href="food.html" class="active">Food</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="coding.html">Coding</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main" role="main">
+        <div class="container">
+
+            <!-- Category Header -->
+            <section class="hero" style="border-bottom-color:var(--color-border);">
+                <h1 style="font-size:var(--font-3xl);">
+                    <span class="icon" style="display:inline-block; margin-right:var(--spacing-sm);" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="M12 5v14" />
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a10 10 0 0 1 10 10" />
+                        </svg>
+                    </span>
+                    Food Prompts
+                </h1>
+                <p>Delicious prompts for food photography, recipes, and culinary AI art.</p>
+            </section>
+
+            <!-- Prompt Grid with 18 cards -->
+            <section>
+                <div class="prompt-grid">
+
+                    <!-- ===== PAGE 1 (Cards 1-6) ===== -->
+                    <!-- Card 1 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Gourmet burger with juicy beef patty, melted cheddar, crispy bacon, fresh lettuce, and special sauce, studio lighting, 8k, food photography"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Fresh sushi platter, salmon nigiri, tuna sashimi, avocado roll, wasabi, soy sauce, bamboo mat, natural window light, high-end Japanese cuisine"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Artisan sourdough bread, golden crust, soft crumb, flour dusting, rustic wooden table, warm morning light, bakery photography, 8k"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Decadent chocolate lava cake, molten center, vanilla ice cream, mint leaf, dark sauce drizzle, dramatic spotlight, dessert photography"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Mediterranean salad bowl, fresh vegetables, feta cheese, olives, olive oil drizzle, vibrant colors, top-down flat lay, clean eating concept"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Wood-fired pizza, crispy crust, fresh mozzarella, basil leaves, tomato sauce, rustic peel, brick oven background, Italian cuisine"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== PAGE 2 (Cards 7-12) ===== -->
+                    <!-- Card 7 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Fresh fruit smoothie bowl, rainbow toppings, granola, coconut flakes, berries, creative arrangement, pastel background, healthy lifestyle"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Grilled steak with herb butter, roasted asparagus, garlic mashed potatoes, cast iron pan, restaurant plating, warm lighting, fine dining"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Homemade pasta with creamy Alfredo sauce, parmesan shavings, fresh parsley, white plate, rustic setting, Italian kitchen, food styling"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Colorful macarons in pink, yellow, and blue, arranged on a vintage plate, soft pastel background, French patisserie, elegant dessert photography"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 11 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Breakfast spread, pancakes with syrup, crispy bacon, scrambled eggs, fresh orange juice, coffee, morning sunlight, cozy kitchen"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 12 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Craft cocktail, sparkling glass, colorful garnish, ice cubes, soft focus background, bar setting, mixology photography, elegant drink"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== PAGE 3 (Cards 13-18) ===== -->
+                    <!-- Card 13 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Thai street food, pad thai noodles, shrimp, peanuts, lime, fresh herbs, wok action, vibrant market atmosphere, travel food photography"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 14 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Artisanal cheese board, brie, cheddar, blue cheese, crackers, grapes, honey drizzle, rustic wooden board, charcuterie style"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 15 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Traditional Japanese bento box, neatly arranged sushi, tamagoyaki, tempura, pickled vegetables, colorful presentation, clean minimalist style"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 16 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Ice cream sundae, multiple scoops, hot fudge, whipped cream, cherry on top, colorful sprinkles, retro diner style, dessert photography"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 17 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Freshly baked croissants, golden flaky layers, steam rising, soft interior, breakfast table, warm cozy atmosphere, French bakery"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 18 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Mexican taco platter, carnitas, fresh salsa, guacamole, cilantro, lime wedges, street style, vibrant colors, festive atmosphere"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== PAGINATION CONTAINER ===== -->
+                <div id="pagination"></div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="copyright">
+                &copy; 2026 <strong>PromptLab</strong> &mdash; Master AI Prompts
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
