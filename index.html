@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PromptLab · AI Image Generator</title>
+    <meta name="description" content="Generate stunning AI images from your prompts instantly." />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,13 +13,19 @@
     <header class="site-header">
         <div class="header-inner">
             <div class="logo">
-                <!-- SVG Sparkle Logo (Primary Color) -->
+                <!-- SVG Sparkle Icon (Primary Color) -->
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z" fill="#FF0000" />
+                    <path d="M12 4L13 9L18 10L13 11L12 16L11 11L6 10L11 9L12 4Z" fill="white" opacity="0.6" />
                 </svg>
                 <span>PromptLab</span>
             </div>
-            <a href="#" class="github-link" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                GitHub
+            </a>
         </div>
     </header>
 
@@ -26,7 +33,7 @@
     <main id="main-content">
         <section class="generator-section">
             <h1>Generate Images with AI</h1>
-            <p class="subtitle">Describe your vision, and let AI bring it to life.</p>
+            <p class="subtitle">Describe your vision, and let AI bring it to life instantly.</p>
 
             <!-- Prompt Input -->
             <div class="form-group">
@@ -36,33 +43,41 @@
             </div>
 
             <!-- Generate Button -->
-            <button id="generateBtn" class="btn btn-primary">Generate Image</button>
+            <button id="generateBtn" class="btn btn-primary" aria-label="Generate image from prompt">
+                Generate Image
+            </button>
 
-            <!-- Output Section (Hidden by default) -->
+            <!-- Output Section -->
             <div class="image-section" id="imageSection" style="display: none;">
-                <div class="image-wrapper">
-                    <img id="outputImage" src="" alt="Generated Image" />
+                <div class="image-wrapper" id="imageWrapper">
+                    <img id="outputImage" src="" alt="Generated AI image" />
+                    <div class="placeholder-text" id="placeholderText">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                        <span>Your AI image will appear here</span>
+                    </div>
                     <div class="loader" id="loader"></div>
                 </div>
 
                 <!-- Action Buttons (Below Image) -->
                 <div class="action-buttons">
-                    <button id="copyBtn" class="btn btn-outline">
-                        <!-- Copy SVG Icon -->
+                    <button id="copyBtn" class="btn btn-outline" aria-label="Copy prompt to clipboard">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                         </svg>
                         <span>Copy Prompt</span>
                     </button>
-                    <button id="shareBtn" class="btn btn-outline">
-                        <!-- Share SVG Icon -->
+                    <button id="shareBtn" class="btn btn-outline" aria-label="Share image or link">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="18" cy="5" r="3"></circle>
-                            <circle cx="6" cy="12" r="3"></circle>
-                            <circle cx="18" cy="19" r="3"></circle>
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
                         </svg>
                         <span>Share</span>
                     </button>
@@ -71,8 +86,8 @@
         </section>
     </main>
 
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="toast">Copied!</div>
+    <!-- TOAST -->
+    <div id="toast" class="toast" role="status" aria-live="polite">Copied!</div>
 
     <script src="app.js"></script>
 </body>
