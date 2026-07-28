@@ -1,6 +1,6 @@
 /* ========================================
    PromptLab — Universal JavaScript
-   Version: 2.0.0 (with Pagination)
+   Version: 2.0.0 (with Pagination & Path Detection)
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -72,16 +72,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================================
-    //  ACTIVE NAV LINK
+    //  ACTIVE NAV LINK (works for root & /pages/ folder)
     // ============================================================
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    // Get current path: remove leading slash, split, and get the last part
+    let currentPath = window.location.pathname;
+    // Remove leading slash
+    if (currentPath.startsWith('/')) currentPath = currentPath.substring(1);
+    // If empty, it's the root → index.html
+    if (currentPath === '' || currentPath === 'index.html' || currentPath === '/') {
+        currentPath = 'index.html';
+    } else {
+        // If it's inside /pages/, we want just the filename
+        const parts = currentPath.split('/');
+        currentPath = parts[parts.length - 1];
+    }
+
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPath) {
-            link.classList.add('active');
-        } else if (currentPath === '' && href === 'index.html') {
-            link.classList.add('active');
-        } else if (currentPath === 'index.html' && href === 'index.html') {
+        // Extract filename from href (in case it's like ../index.html or pages/beauty.html)
+        let hrefFile = href;
+        if (href.includes('/')) {
+            const parts = href.split('/');
+            hrefFile = parts[parts.length - 1];
+        }
+        if (hrefFile === currentPath) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -110,10 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const cards = grid.querySelectorAll('.prompt-card');
         if (cards.length <= CARDS_PER_PAGE) {
-            // Hide pagination if not needed
             const paginationEl = document.getElementById('pagination');
             if (paginationEl) paginationEl.style.display = 'none';
-            // Show all cards
             cards.forEach(c => c.style.display = '');
             return;
         }
@@ -121,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
         let currentPage = 1;
 
-        // Create pagination container if it doesn't exist
         let paginationContainer = document.getElementById('pagination');
         if (!paginationContainer) {
             paginationContainer = document.createElement('div');
@@ -132,25 +143,20 @@ document.addEventListener('DOMContentLoaded', function () {
             paginationContainer.style.display = '';
         }
 
-        // ---- Render function ----
         function renderPage(page) {
             currentPage = page;
 
-            // Show/hide cards
             cards.forEach((card, index) => {
                 const start = (currentPage - 1) * CARDS_PER_PAGE;
                 const end = start + CARDS_PER_PAGE;
                 card.style.display = (index >= start && index < end) ? '' : 'none';
             });
 
-            // Build pagination HTML
             let html = '';
 
-            // Prev button
             const prevDisabled = currentPage === 1;
             html += `<button class="pagination-prev" ${prevDisabled ? 'disabled' : ''} data-page="${currentPage - 1}">Previous</button>`;
 
-            // Page numbers
             const maxVisible = 5;
             let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(totalPages, currentPage + 2);
@@ -182,34 +188,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 html += `<button class="pagination-page" data-page="${totalPages}">${totalPages}</button>`;
             }
 
-            // Next button
             const nextDisabled = currentPage === totalPages;
             html += `<button class="pagination-next" ${nextDisabled ? 'disabled' : ''} data-page="${currentPage + 1}">Next</button>`;
 
             paginationContainer.innerHTML = html;
 
-            // ---- Attach events ----
             paginationContainer.querySelectorAll('button[data-page]').forEach(btn => {
                 btn.addEventListener('click', function () {
                     const page = parseInt(this.dataset.page, 10);
                     if (page >= 1 && page <= totalPages && page !== currentPage) {
                         renderPage(page);
-                        // Scroll to top of grid
                         grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
             });
         }
 
-        // ---- Initial render ----
         renderPage(1);
     }
 
     // ============================================================
-    //  COPY / SHARE — using event delegation for dynamic cards
+    //  COPY / SHARE — using event delegation
     // ============================================================
     function setupCopyShare() {
-        // Copy buttons
         document.addEventListener('click', function (e) {
             const btn = e.target.closest('.btn-copy');
             if (!btn) return;
@@ -233,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Share buttons
         document.addEventListener('click', function (e) {
             const btn = e.target.closest('.btn-share');
             if (!btn) return;
@@ -263,7 +263,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Helper functions ----
     function fallbackCopy(text, btn) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
@@ -282,10 +281,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showCopiedFeedback(btn) {
-        // Find or create the icon span
         let iconSpan = btn.querySelector('.btn-icon-svg');
         if (!iconSpan) {
-            // If button was built without icon, rebuild it
             const originalText = btn.dataset.originalText || btn.textContent.trim() || 'Copy';
             btn.innerHTML = '';
             iconSpan = document.createElement('span');
@@ -300,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.dataset.originalText = originalText;
         }
 
-        // Change to checkmark
         iconSpan.innerHTML = ICON_COPY_CHECK;
         const textNode = btn.childNodes[1];
         if (textNode && textNode.nodeType === Node.TEXT_NODE) {
@@ -331,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ---- Ensure copy buttons have icons on load ----
     function ensureButtonIcons() {
         document.querySelectorAll('.btn-copy').forEach(btn => {
             if (!btn.querySelector('.btn-icon-svg')) {
@@ -377,5 +372,5 @@ document.addEventListener('DOMContentLoaded', function () {
     setupCopyShare();
     initPagination();
 
-    console.log('PromptLab — scripts loaded with pagination.');
+    console.log('PromptLab — scripts loaded with pagination and folder detection.');
 });
