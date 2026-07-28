@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beauty Prompts — PromptLab</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../pagination.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ===== HEADER (identical) ===== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-logo">
+                <span class="logo-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                Prompt<span>Lab</span>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION (slide-down, all links within /pages/) ===== -->
+    <nav class="nav-wrapper" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="beauty.html" class="active">Beauty</a></li>
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="realistic.html">Realistic</a></li>
+                <li><a href="anime.html">Anime</a></li>
+                <li><a href="logo.html">Logo</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="coding.html">Coding</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main" role="main">
+        <div class="container">
+
+            <!-- Category Header -->
+            <section class="hero" style="border-bottom-color:var(--color-border);">
+                <h1 style="font-size:var(--font-3xl);">
+                    <span class="icon" style="display:inline-block; margin-right:var(--spacing-sm);" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" />
+                            <path d="M8 14v2a4 4 0 0 0 8 0v-2" />
+                            <line x1="8" y1="18" x2="16" y2="18" />
+                            <line x1="10" y1="20" x2="14" y2="20" />
+                        </svg>
+                    </span>
+                    Beauty Prompts
+                </h1>
+                <p>Curated prompts for stunning beauty, fashion, and editorial AI imagery.</p>
+            </section>
+
+            <!-- Prompt Grid with 18 cards -->
+            <section>
+                <div class="prompt-grid">
+
+                    <!-- ===== PAGE 1 (Cards 1-6) ===== -->
+                    <!-- Card 1 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Close-up portrait of a model with glowing glass skin, dewy highlighter, soft peach blush, dramatic side lighting, fashion editorial style, 8k, photorealistic"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Elegant bridal makeup look with soft smoky eyes, nude lips, luminous complexion, white floral hair accessory, natural window light, romantic mood"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Avant-garde makeup art with geometric lines, bold primary colors, metallic gold accents, futuristic fashion, studio photography, high contrast"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Minimalist skincare flat lay with white ceramic bottles, fresh green leaves, soft morning light, clean aesthetic, product photography, pastel tones"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Dramatic red lipstick close-up with textured matte finish, gold flecks, soft focus background, cinematic lighting, high-end fashion campaign"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Editorial beauty portrait with freckles, natural brow, glossy nude lip, sheer fabric overlay, golden hour backlighting, dreamy ethereal vibe"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== PAGE 2 (Cards 7-12) ===== -->
+                    <!-- Card 7 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "High-fashion beauty shot with bold graphic eyeliner, neon accents, futuristic styling, studio strobe lighting, editorial magazine cover, 8k"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Natural glowing skin close-up, minimalist makeup, freckles visible, soft sunlight, clean beauty aesthetic, authentic and raw, 8k detail"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Glamorous old Hollywood makeup, bold red lip, winged eyeliner, flawless complexion, dramatic studio lighting, vintage glamour, 1940s style"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Colorful festival makeup, rainbow glitter, face jewels, bold artistic expression, vibrant party atmosphere, creative portrait, 8k"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 11 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Sophisticated evening makeup, shimmering gold eyeshadow, contour, nude lip, elegant updo, candlelit ambiance, romantic and luxurious"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 12 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Editorial beauty portrait with wind-blown hair, intense gaze, monochrome palette, high contrast, dramatic shadow play, fine art photography"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== PAGE 3 (Cards 13-18) ===== -->
+                    <!-- Card 13 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "African-inspired beauty look, intricate tribal patterns, bold earthy colors, natural texture, cultural celebration, studio portrait, 8k"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 14 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Korean glass skin tutorial, flawless dewy finish, subtle pink blush, gradient lip, soft natural brows, clean beauty, skincare focus"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 15 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Gothic-inspired dark beauty, black lipstick, heavy smoky eye, pale complexion, dramatic lighting, moody atmosphere, alternative fashion"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 16 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Summer beach beauty, sun-kissed skin, bronze glow, windswept hair, ocean background, natural light, effortless glamour, travel editorial"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 17 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Bridal portrait, soft romantic curls, pearl accessories, glowing skin, floral crown, dreamy backlight, wedding photography, fairytale aesthetic"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 18 -->
+                    <div class="prompt-card">
+                        <div class="image-placeholder">
+                            <span class="placeholder-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </span>
+                            <span class="placeholder-label">Image</span>
+                        </div>
+                        <div class="body">
+                            <div class="prompt-text">
+                                <span class="label">Prompt</span>
+                                "Indie aesthetic beauty, messy bun, minimal makeup, freckles, oversized sweater, cozy bedroom lighting, intimate portrait, film grain"
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-copy">Copy</button>
+                                <button class="btn btn-sm btn-share">Share</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== PAGINATION CONTAINER ===== -->
+                <div id="pagination"></div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER (identical) ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="copyright">
+                &copy; 2026 <strong>PromptLab</strong> &mdash; Master AI Prompts
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
