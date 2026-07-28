@@ -3,92 +3,227 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PromptLab · AI Image Generator</title>
-    <meta name="description" content="Generate stunning AI images from your prompts instantly." />
+    <title>PromptLab — Master AI Prompts</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Preconnect for Google Fonts (optional but clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="logo">
-                <!-- SVG Sparkle Icon (Primary Color) -->
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L13.5 9.5L21 11L13.5 12.5L12 20L10.5 12.5L3 11L10.5 9.5L12 2Z" fill="#FF0000" />
-                    <path d="M12 4L13 9L18 10L13 11L12 16L11 11L6 10L11 9L12 4Z" fill="white" opacity="0.6" />
-                </svg>
-                <span>PromptLab</span>
+    <!-- ===== HEADER ===== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-logo">
+                <!-- SVG logo icon instead of emoji -->
+                <span class="logo-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                Prompt<span>Lab</span>
             </div>
-            <a href="#" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                </svg>
-                GitHub
-            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN -->
-    <main id="main-content">
-        <section class="generator-section">
-            <h1>Generate Images with AI</h1>
-            <p class="subtitle">Describe your vision, and let AI bring it to life instantly.</p>
+    <!-- ===== NAVIGATION (slide-down) ===== -->
+    <nav class="nav-wrapper" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="beauty.html">Beauty</a></li>
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="realistic.html">Realistic</a></li>
+                <li><a href="anime.html">Anime</a></li>
+                <li><a href="logo.html">Logo</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="coding.html">Coding</a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <!-- Prompt Input -->
-            <div class="form-group">
-                <label for="promptInput">Your Prompt</label>
-                <textarea id="promptInput" rows="4" placeholder="e.g. A majestic tiger walking through a neon-lit cyberpunk city at midnight"></textarea>
-                <span class="error-msg" id="errorMsg" style="display: none;">Please enter a prompt to generate.</span>
-            </div>
+    <!-- ===== MAIN ===== -->
+    <main class="main" role="main">
+        <div class="container">
 
-            <!-- Generate Button -->
-            <button id="generateBtn" class="btn btn-primary" aria-label="Generate image from prompt">
-                Generate Image
-            </button>
+            <!-- HERO -->
+            <section class="hero">
+                <h1>
+                    Prompt<span class="highlight">Lab</span>
+                    <br />
+                    <span style="font-weight:var(--fw-regular); color:var(--color-text-secondary); font-size:0.6em; display:block; margin-top:var(--spacing-sm);">
+                        Master AI Prompts
+                    </span>
+                </h1>
+                <p>
+                    Discover, browse, and copy powerful prompts for AI image generation.
+                    Every category is curated to spark your creativity.
+                </p>
+                <a href="#categories" class="btn">Explore Categories</a>
+            </section>
 
-            <!-- Output Section -->
-            <div class="image-section" id="imageSection" style="display: none;">
-                <div class="image-wrapper" id="imageWrapper">
-                    <img id="outputImage" src="" alt="Generated AI image" />
-                    <div class="placeholder-text" id="placeholderText">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                            <circle cx="8.5" cy="8.5" r="1.5" />
-                            <polyline points="21 15 16 10 5 21" />
-                        </svg>
-                        <span>Your AI image will appear here</span>
-                    </div>
-                    <div class="loader" id="loader"></div>
+            <!-- CATEGORIES SECTION -->
+            <section id="categories">
+                <h2 class="section-title">
+                    Browse Categories
+                    <span class="sub">Find the perfect prompt for your next project</span>
+                </h2>
+
+                <div class="category-grid">
+                    <!-- Beauty -->
+                    <a href="beauty.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" />
+                                <path d="M8 14v2a4 4 0 0 0 8 0v-2" />
+                                <line x1="8" y1="18" x2="16" y2="18" />
+                                <line x1="10" y1="20" x2="14" y2="20" />
+                            </svg>
+                        </span>
+                        <span class="name">Beauty</span>
+                        <span class="count">12 prompts</span>
+                    </a>
+
+                    <!-- AI -->
+                    <a href="ai.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </span>
+                        <span class="name">AI</span>
+                        <span class="count">10 prompts</span>
+                    </a>
+
+                    <!-- Photography -->
+                    <a href="photography.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="6" width="20" height="14" rx="2" ry="2" />
+                                <circle cx="12" cy="13" r="4" />
+                                <line x1="18" y1="6" x2="18" y2="4" />
+                                <line x1="6" y1="6" x2="6" y2="4" />
+                            </svg>
+                        </span>
+                        <span class="name">Photography</span>
+                        <span class="count">14 prompts</span>
+                    </a>
+
+                    <!-- Realistic -->
+                    <a href="realistic.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="4" />
+                                <line x1="12" y1="2" x2="12" y2="4" />
+                                <line x1="12" y1="20" x2="12" y2="22" />
+                                <line x1="2" y1="12" x2="4" y2="12" />
+                                <line x1="20" y1="12" x2="22" y2="12" />
+                            </svg>
+                        </span>
+                        <span class="name">Realistic</span>
+                        <span class="count">8 prompts</span>
+                    </a>
+
+                    <!-- Anime -->
+                    <a href="anime.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="9" r="2" />
+                                <circle cx="15" cy="9" r="2" />
+                                <path d="M9 15c.7 1.3 2.3 2 3 2s2.3-.7 3-2" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                        </span>
+                        <span class="name">Anime</span>
+                        <span class="count">18 prompts</span>
+                    </a>
+
+                    <!-- Logo -->
+                    <a href="logo.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                                <polyline points="2 7 2 17 12 22 22 17 22 7" />
+                            </svg>
+                        </span>
+                        <span class="name">Logo</span>
+                        <span class="count">11 prompts</span>
+                    </a>
+
+                    <!-- Food -->
+                    <a href="food.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" />
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 2a10 10 0 0 1 10 10" />
+                            </svg>
+                        </span>
+                        <span class="name">Food</span>
+                        <span class="count">9 prompts</span>
+                    </a>
+
+                    <!-- Marketing -->
+                    <a href="marketing.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 10L21 7l-3-3-3 3 3 3z" />
+                                <path d="M14 14L7 7l-3 3 7 7 3-3z" />
+                                <path d="M10 18L7 21l-3-3 3-3 3 3z" />
+                                <path d="M18 18l-3 3 3 3 3-3-3-3z" />
+                            </svg>
+                        </span>
+                        <span class="name">Marketing</span>
+                        <span class="count">13 prompts</span>
+                    </a>
+
+                    <!-- Coding -->
+                    <a href="coding.html" class="category-card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </span>
+                        <span class="name">Coding</span>
+                        <span class="count">16 prompts</span>
+                    </a>
                 </div>
+            </section>
 
-                <!-- Action Buttons (Below Image) -->
-                <div class="action-buttons">
-                    <button id="copyBtn" class="btn btn-outline" aria-label="Copy prompt to clipboard">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                        </svg>
-                        <span>Copy Prompt</span>
-                    </button>
-                    <button id="shareBtn" class="btn btn-outline" aria-label="Share image or link">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="18" cy="5" r="3" />
-                            <circle cx="6" cy="12" r="3" />
-                            <circle cx="18" cy="19" r="3" />
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                        </svg>
-                        <span>Share</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- TOAST -->
-    <div id="toast" class="toast" role="status" aria-live="polite">Copied!</div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="copyright">
+                &copy; 2026 <strong>PromptLab</strong> &mdash; Master AI Prompts
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-    <script src="app.js"></script>
+    <!-- ===== SCRIPTS ===== -->
+    <script src="script.js"></script>
 </body>
 </html>
