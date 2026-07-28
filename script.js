@@ -1,24 +1,22 @@
 /* ========================================
    PromptLab — Universal JavaScript
-   Version: 1.0.0
+   Version: 2.0.0 (with Pagination)
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
-    /* ===== DOM refs ===== */
+    // ============================================================
+    //  DOM refs
+    // ============================================================
     const header = document.querySelector('.header');
     const hamburger = document.querySelector('.hamburger');
     const navWrapper = document.querySelector('.nav-wrapper');
     const navLinks = document.querySelectorAll('.nav-links a');
-    const copyButtons = document.querySelectorAll('.btn-copy');
-    const shareButtons = document.querySelectorAll('.btn-share');
 
     // ============================================================
-    //  SVG ICONS (all using --color-primary = #0a0a0a)
-    //  We define them here so we can inject into buttons
+    //  SVG ICONS
     // ============================================================
-
     const ICON_COPY = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -42,36 +40,17 @@ document.addEventListener('DOMContentLoaded', function () {
         </svg>
     `;
 
-    const ICON_HAMBURGER = `
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    `;
-
-    // Inject hamburger icon (in case HTML uses emoji, we replace)
-    if (hamburger) {
-        // If hamburger already has children, we might want to replace them,
-        // but we'll assume we use the bar spans inside.
-        // We'll ensure it has the proper structure.
-        // We'll just leave it as is because the CSS expects .bar spans.
-        // But we can also set innerHTML to our bars.
-        // We'll not override to keep flexibility.
-    }
-
     // ============================================================
     //  HAMBURGER TOGGLE
     // ============================================================
-
     if (hamburger && navWrapper) {
         hamburger.addEventListener('click', function (e) {
             e.stopPropagation();
             const isOpen = navWrapper.classList.toggle('open');
             hamburger.classList.toggle('active');
-            // aria-expanded for accessibility
             hamburger.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close nav on link click (mobile)
         navLinks.forEach(link => {
             link.addEventListener('click', function () {
                 navWrapper.classList.remove('open');
@@ -80,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Close on outside click
         document.addEventListener('click', function (e) {
             if (navWrapper.classList.contains('open')) {
                 const target = e.target;
@@ -94,17 +72,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================================
-    //  ACTIVE NAV LINK (based on current URL)
+    //  ACTIVE NAV LINK
     // ============================================================
-
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPath) {
             link.classList.add('active');
         } else if (currentPath === '' && href === 'index.html') {
-            // if we are on root and link points to index.html
             link.classList.add('active');
         } else if (currentPath === 'index.html' && href === 'index.html') {
             link.classList.add('active');
@@ -116,74 +91,180 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================================
     //  HEADER SCROLL EFFECT
     // ============================================================
-
-    let lastScrollY = 0;
     window.addEventListener('scroll', function () {
-        const scrollY = window.scrollY;
-        if (scrollY > 10) {
+        if (window.scrollY > 10) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-        lastScrollY = scrollY;
     }, { passive: true });
 
     // ============================================================
-    //  COPY BUTTON
+    //  PAGINATION — 6 cards per page
     // ============================================================
+    const CARDS_PER_PAGE = 6;
 
-    copyButtons.forEach(btn => {
-        // Store original HTML (we'll add icon inside)
-        // We'll set the button content: icon + text
-        // But we need to preserve the text. We'll add icon before text.
-        const originalText = btn.textContent.trim();
-        // Clear and rebuild
-        btn.innerHTML = '';
-        // Add icon
-        const iconSpan = document.createElement('span');
-        iconSpan.className = 'btn-icon-svg';
-        iconSpan.style.display = 'inline-flex';
-        iconSpan.style.alignItems = 'center';
-        iconSpan.style.justifyContent = 'center';
-        iconSpan.style.marginRight = '0.3rem';
-        iconSpan.innerHTML = ICON_COPY;
-        btn.appendChild(iconSpan);
-        // Add text node
-        const textNode = document.createTextNode(' ' + originalText);
-        btn.appendChild(textNode);
+    function initPagination() {
+        const grid = document.querySelector('.prompt-grid');
+        if (!grid) return;
 
-        // Store the original text for reset
-        btn.dataset.originalText = originalText;
+        const cards = grid.querySelectorAll('.prompt-card');
+        if (cards.length <= CARDS_PER_PAGE) {
+            // Hide pagination if not needed
+            const paginationEl = document.getElementById('pagination');
+            if (paginationEl) paginationEl.style.display = 'none';
+            // Show all cards
+            cards.forEach(c => c.style.display = '');
+            return;
+        }
 
-        btn.addEventListener('click', function (e) {
+        const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+        let currentPage = 1;
+
+        // Create pagination container if it doesn't exist
+        let paginationContainer = document.getElementById('pagination');
+        if (!paginationContainer) {
+            paginationContainer = document.createElement('div');
+            paginationContainer.id = 'pagination';
+            paginationContainer.className = 'pagination';
+            grid.parentNode.insertBefore(paginationContainer, grid.nextSibling);
+        } else {
+            paginationContainer.style.display = '';
+        }
+
+        // ---- Render function ----
+        function renderPage(page) {
+            currentPage = page;
+
+            // Show/hide cards
+            cards.forEach((card, index) => {
+                const start = (currentPage - 1) * CARDS_PER_PAGE;
+                const end = start + CARDS_PER_PAGE;
+                card.style.display = (index >= start && index < end) ? '' : 'none';
+            });
+
+            // Build pagination HTML
+            let html = '';
+
+            // Prev button
+            const prevDisabled = currentPage === 1;
+            html += `<button class="pagination-prev" ${prevDisabled ? 'disabled' : ''} data-page="${currentPage - 1}">Previous</button>`;
+
+            // Page numbers
+            const maxVisible = 5;
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, currentPage + 2);
+
+            if (endPage - startPage < maxVisible - 1) {
+                if (startPage === 1) {
+                    endPage = Math.min(totalPages, startPage + maxVisible - 1);
+                } else if (endPage === totalPages) {
+                    startPage = Math.max(1, endPage - maxVisible + 1);
+                }
+            }
+
+            if (startPage > 1) {
+                html += `<button class="pagination-page" data-page="1">1</button>`;
+                if (startPage > 2) {
+                    html += `<span class="pagination-ellipsis">…</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const active = i === currentPage ? 'active' : '';
+                html += `<button class="pagination-page ${active}" data-page="${i}">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    html += `<span class="pagination-ellipsis">…</span>`;
+                }
+                html += `<button class="pagination-page" data-page="${totalPages}">${totalPages}</button>`;
+            }
+
+            // Next button
+            const nextDisabled = currentPage === totalPages;
+            html += `<button class="pagination-next" ${nextDisabled ? 'disabled' : ''} data-page="${currentPage + 1}">Next</button>`;
+
+            paginationContainer.innerHTML = html;
+
+            // ---- Attach events ----
+            paginationContainer.querySelectorAll('button[data-page]').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const page = parseInt(this.dataset.page, 10);
+                    if (page >= 1 && page <= totalPages && page !== currentPage) {
+                        renderPage(page);
+                        // Scroll to top of grid
+                        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        // ---- Initial render ----
+        renderPage(1);
+    }
+
+    // ============================================================
+    //  COPY / SHARE — using event delegation for dynamic cards
+    // ============================================================
+    function setupCopyShare() {
+        // Copy buttons
+        document.addEventListener('click', function (e) {
+            const btn = e.target.closest('.btn-copy');
+            if (!btn) return;
+
             e.preventDefault();
-            // Find the prompt text - the button is inside .actions, parent .body, sibling .prompt-text
-            const card = this.closest('.prompt-card');
+            const card = btn.closest('.prompt-card');
             if (!card) return;
             const promptTextEl = card.querySelector('.prompt-text');
             if (!promptTextEl) return;
-            // Get text content, but remove the label if present
-            let textToCopy = promptTextEl.textContent.trim();
-            // If there is a label span inside, we might want to exclude it, but we'll copy everything.
-            // Better: copy the inner text without the label? We'll copy the entire text content.
-            // We'll just use innerText to get visible text.
-            textToCopy = promptTextEl.innerText.trim();
 
-            // Copy to clipboard
+            let textToCopy = promptTextEl.innerText.trim();
+
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    showCopiedFeedback(this);
+                    showCopiedFeedback(btn);
                 }).catch(() => {
-                    fallbackCopy(textToCopy, this);
+                    fallbackCopy(textToCopy, btn);
                 });
             } else {
-                fallbackCopy(textToCopy, this);
+                fallbackCopy(textToCopy, btn);
             }
         });
-    });
 
+        // Share buttons
+        document.addEventListener('click', function (e) {
+            const btn = e.target.closest('.btn-share');
+            if (!btn) return;
+
+            e.preventDefault();
+            const card = btn.closest('.prompt-card');
+            if (!card) return;
+            const promptTextEl = card.querySelector('.prompt-text');
+            if (!promptTextEl) return;
+
+            const textToShare = promptTextEl.innerText.trim();
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Prompt from PromptLab',
+                    text: textToShare,
+                    url: window.location.href,
+                }).catch(err => {
+                    if (err.name !== 'AbortError') {
+                        console.warn('Share failed', err);
+                        fallbackShare(textToShare);
+                    }
+                });
+            } else {
+                fallbackShare(textToShare);
+            }
+        });
+    }
+
+    // ---- Helper functions ----
     function fallbackCopy(text, btn) {
-        // Use textarea fallback
         const textarea = document.createElement('textarea');
         textarea.value = text;
         textarea.style.position = 'fixed';
@@ -201,23 +282,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showCopiedFeedback(btn) {
-        // Change icon and text
-        const iconSpan = btn.querySelector('.btn-icon-svg');
-        if (iconSpan) {
-            iconSpan.innerHTML = ICON_COPY_CHECK;
+        // Find or create the icon span
+        let iconSpan = btn.querySelector('.btn-icon-svg');
+        if (!iconSpan) {
+            // If button was built without icon, rebuild it
+            const originalText = btn.dataset.originalText || btn.textContent.trim() || 'Copy';
+            btn.innerHTML = '';
+            iconSpan = document.createElement('span');
+            iconSpan.className = 'btn-icon-svg';
+            iconSpan.style.display = 'inline-flex';
+            iconSpan.style.alignItems = 'center';
+            iconSpan.style.justifyContent = 'center';
+            iconSpan.style.marginRight = '0.3rem';
+            btn.appendChild(iconSpan);
+            const textNode = document.createTextNode(' ' + originalText);
+            btn.appendChild(textNode);
+            btn.dataset.originalText = originalText;
         }
-        // Change text
-        const textNode = btn.childNodes[1]; // second child is text node
+
+        // Change to checkmark
+        iconSpan.innerHTML = ICON_COPY_CHECK;
+        const textNode = btn.childNodes[1];
         if (textNode && textNode.nodeType === Node.TEXT_NODE) {
             textNode.textContent = ' Copied!';
         }
         btn.classList.add('copied');
 
-        // Reset after 2s
         setTimeout(() => {
-            if (iconSpan) {
-                iconSpan.innerHTML = ICON_COPY;
-            }
+            iconSpan.innerHTML = ICON_COPY;
             const originalText = btn.dataset.originalText || 'Copy';
             const textNodeReset = btn.childNodes[1];
             if (textNodeReset && textNodeReset.nodeType === Node.TEXT_NODE) {
@@ -227,60 +319,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000);
     }
 
-    // ============================================================
-    //  SHARE BUTTON
-    // ============================================================
-
-    shareButtons.forEach(btn => {
-        // Rebuild with SVG icon
-        const originalText = btn.textContent.trim();
-        btn.innerHTML = '';
-        const iconSpan = document.createElement('span');
-        iconSpan.className = 'btn-icon-svg';
-        iconSpan.style.display = 'inline-flex';
-        iconSpan.style.alignItems = 'center';
-        iconSpan.style.justifyContent = 'center';
-        iconSpan.style.marginRight = '0.3rem';
-        iconSpan.innerHTML = ICON_SHARE;
-        btn.appendChild(iconSpan);
-        const textNode = document.createTextNode(' ' + originalText);
-        btn.appendChild(textNode);
-        btn.dataset.originalText = originalText;
-
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            // Find prompt text
-            const card = this.closest('.prompt-card');
-            if (!card) return;
-            const promptTextEl = card.querySelector('.prompt-text');
-            if (!promptTextEl) return;
-            const textToShare = promptTextEl.innerText.trim();
-
-            // Use Web Share API if available
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Prompt from PromptLab',
-                    text: textToShare,
-                    url: window.location.href,
-                }).catch(err => {
-                    if (err.name !== 'AbortError') {
-                        console.warn('Share failed', err);
-                        fallbackShare(textToShare);
-                    }
-                });
-            } else {
-                fallbackShare(textToShare);
-            }
-        });
-    });
-
     function fallbackShare(text) {
-        // Copy to clipboard as fallback
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(() => {
                 alert('Prompt copied to clipboard! You can share it now.');
             }).catch(() => {
-                // Last resort: prompt user to copy
                 prompt('Copy this prompt manually:', text);
             });
         } else {
@@ -288,11 +331,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ============================================================
-    //  ADDITIONAL: Ensure all SVG icons inherit primary color via CSS
-    //  We set stroke="currentColor" and fill="none" where appropriate.
-    //  The parent button text color will be applied.
-    // ============================================================
+    // ---- Ensure copy buttons have icons on load ----
+    function ensureButtonIcons() {
+        document.querySelectorAll('.btn-copy').forEach(btn => {
+            if (!btn.querySelector('.btn-icon-svg')) {
+                const originalText = btn.textContent.trim() || 'Copy';
+                btn.innerHTML = '';
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'btn-icon-svg';
+                iconSpan.style.display = 'inline-flex';
+                iconSpan.style.alignItems = 'center';
+                iconSpan.style.justifyContent = 'center';
+                iconSpan.style.marginRight = '0.3rem';
+                iconSpan.innerHTML = ICON_COPY;
+                btn.appendChild(iconSpan);
+                const textNode = document.createTextNode(' ' + originalText);
+                btn.appendChild(textNode);
+                btn.dataset.originalText = originalText;
+            }
+        });
 
-    console.log('PromptLab — scripts loaded.');
+        document.querySelectorAll('.btn-share').forEach(btn => {
+            if (!btn.querySelector('.btn-icon-svg')) {
+                const originalText = btn.textContent.trim() || 'Share';
+                btn.innerHTML = '';
+                const iconSpan = document.createElement('span');
+                iconSpan.className = 'btn-icon-svg';
+                iconSpan.style.display = 'inline-flex';
+                iconSpan.style.alignItems = 'center';
+                iconSpan.style.justifyContent = 'center';
+                iconSpan.style.marginRight = '0.3rem';
+                iconSpan.innerHTML = ICON_SHARE;
+                btn.appendChild(iconSpan);
+                const textNode = document.createTextNode(' ' + originalText);
+                btn.appendChild(textNode);
+                btn.dataset.originalText = originalText;
+            }
+        });
+    }
+
+    // ============================================================
+    //  INIT
+    // ============================================================
+    ensureButtonIcons();
+    setupCopyShare();
+    initPagination();
+
+    console.log('PromptLab — scripts loaded with pagination.');
 });
